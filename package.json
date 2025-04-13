@@ -1,0 +1,114 @@
+{
+  "name": "MacDPI",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Bes-js/MacDPI",
+  "author": {
+    "name": "Bes-js",
+    "url": "https://github.com/Bes-js"
+  },
+  "main": "build/main.js",
+  "description": "This application contains a Deep Packet Inspection (DPI) tool designed specifically for macOS.",
+  "scripts": {
+    "next:dev": "next dev",
+    "next:build": "next build",
+    "next:start": "next start",
+    "next:lint": "next lint",
+    "format": "dprint fmt",
+    "postinstall": "electron-builder install-app-deps",
+    "electron:dist": "electron-builder --dir",
+    "electron:dist:macos": "electron-builder --mac",
+    "electron:build": "tsup",
+    "build": "run-s next:build electron:build",
+    "dist": "run-s build electron:dist:macos",
+    "dev:watch": "npm-run-all --parallel electron:dev next:dev",
+    "dev": "npm-run-all --parallel electron:dev next:dev",
+    "electron:build_watch": "tsup --watch",
+    "electron:dev:nowatch": "npm-run-all --parallel electron:build_watch electron:watch",
+    "electron:dev": "npm-run-all --parallel electron:build electron:watch",
+    "electron:watch": "cross-env NODE_ENV='development' nodemon"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.1",
+    "@next/env": "^14.2.5",
+    "clsx": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "five.db": "^0.0.9",
+    "next": "14.2.5",
+    "os": "^0.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "electron": "^35.1.5",
+    "electron-builder": "^24.13.3",
+    "eslint": "^8.5.7",
+    "eslint-config-next": "14.2.5",
+    "nodemon": "^3.1.4",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.7",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "build": {
+    "executableName": "MacDPI",
+    "appId": "com.besjs.macdpi",
+    "asarUnpack": [
+      "node_modules/next",
+      "node_modules/@img",
+      "node_modules/sharp",
+      "**\\*.{node,dll}"
+    ],
+    "files": [
+      "build",
+      "node_modules",
+      "package.json",
+      "public",
+      "out"
+    ],
+    "extraMetadata": {
+      "main": "build/main.js"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "public/app.icns",
+      "category": "besjs.macdpi.dpi",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": true
+    },
+    "dmg": {
+      "background": "public/app_background.png",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 410,
+          "y": 325,
+          "type": "file"
+        },
+        {
+          "x": 130,
+          "y": 325,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    }
+  }
+}

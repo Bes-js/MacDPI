@@ -1,6 +1,6 @@
 <div align="center" style="white-space: nowrap;">
   <img src="./MacDPI_logo.png" width=50 height=50 align="center">
-  <h1 align="center">MacDPI</h1>
+  <h1 align="center"> MacDPI </h1>
 </div>
 
 <div align="center">

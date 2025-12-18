@@ -1,16 +1,10 @@
 <div align="center" style="white-space: nowrap;">
-  <img src="./MacDPI_logo.png" width=50 height=50 align="center">
+  <img src="./AppIcon.png" width=100 height=100 align="center">
   <h1 align="center"> MacDPI </h1>
 </div>
 
 <div align="center">
   <span>This application contains a Deep Packet Inspection (DPI) tool designed specifically for macOS. The tool analyzes network traffic and inspects data packets to provide insights into the flow of information across the network. It is useful for network administrators, security professionals, or anyone looking to monitor and inspect network traffic in detail.</span>
-</div>
-
-###
-
-<div align="center">
-  <img src="./MacDPI_interface.gif" width=400 height=270>
 </div>
 
 ###

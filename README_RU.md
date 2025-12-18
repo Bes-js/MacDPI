@@ -1,5 +1,5 @@
 <div align="center" style="white-space: nowrap;">
-  <img src="./MacDPI_logo.png" width=50 height=50 align="center">
+  <img src="./AppIcon.png" width=100 height=100 align="center">
   <h1 align="center">MacDPI</h1>
 </div>
 
